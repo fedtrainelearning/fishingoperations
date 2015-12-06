@@ -736,8 +736,17 @@ class mod_quiz_renderer extends plugin_renderer_base {
      */
     public function view_page($course, $quiz, $cm, $context, $viewobj) {
         $output = '';
-        //$output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages); // Matt edit
-        //$output .= $this->view_table($quiz, $context, $viewobj); // Matt edit
+        $output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages); // Matt edit
+        $output .= $this->view_table($quiz, $context, $viewobj); // Matt edit
+        $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
+        $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
+        return $output;
+    }
+	// this function is a Matt edit for view.php
+    public function view_page_no_quiz_info($course, $quiz, $cm, $context, $viewobj) {
+        $output = '';
+        //$output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
+        $output .= $this->view_table($quiz, $context, $viewobj);
         $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
         $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
         return $output;
