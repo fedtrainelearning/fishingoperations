@@ -245,7 +245,11 @@ if (isguestuser()) {
     echo $output->view_page_notenrolled($course, $quiz, $cm, $context, $viewobj->infomessages);
 } else {
 	if ($attempts) {
-		echo $output->view_page_no_quiz_info($course, $quiz, $cm, $context, $viewobj); // original code
+		// if ($attempts > 1) {
+			echo $output->view_page_no_quiz_info_no_specific_feedback($course, $quiz, $cm, $context, $viewobj);
+		// } else {
+			// echo $output->view_page_no_quiz_info($course, $quiz, $cm, $context, $viewobj); // original code
+		// }
 	} else {
 		echo $output->view_page($course, $quiz, $cm, $context, $viewobj); // Matt edit. See renderer.php
 	}
