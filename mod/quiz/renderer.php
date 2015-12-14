@@ -751,6 +751,16 @@ class mod_quiz_renderer extends plugin_renderer_base {
         $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
         return $output;
     }
+	// so is this
+    public function view_page_no_quiz_info_no_specific_feedback($course, $quiz, $cm, $context, $viewobj) {
+        $output = '';
+        //$output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
+        $output .= $this->view_table($quiz, $context, $viewobj);
+        // $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
+        $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
+        return $output;
+    }
+	
 
     /**
      * Work out, and render, whatever buttons, and surrounding info, should appear
